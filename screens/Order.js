@@ -1,25 +1,24 @@
 import React from 'react';
 
 import {View, Text, StatusBar, ScrollView, Image, TouchableOpacity} from 'react-native';
-import {useSelector} from "react-redux";
-import {Divider} from "react-native-elements/dist/divider/Divider";
+
 
 
 export default function Order({route, navigation}) {
     const cartItems = route.params.items;
     return (
-        <>
+        <View style={{backgroundColor:'rgb(255, 247, 253)',flex:1}}>
             <ScrollView style={{marginTop:StatusBar.currentHeight, padding:30}}>
                 <OrderDetails restaurantName = {route.params.restaurantName} totalPrice={route.params.totalPrice} />
                 <OrderedFood cartItems={cartItems}/>
             </ScrollView>
-            <TouchableOpacity activeOpacity={1} style={{alignSelf:'center', backgroundColor:'lightblue',padding:10,
+            <TouchableOpacity activeOpacity={1} style={{alignSelf:'center', backgroundColor:'pink',padding:10,
             borderWidth:2,borderColor:'black',borderRadius:15}}
             onPress={() => navigation.navigate('Home')}
             >
                 <Text style={{fontWeight:'bold', fontSize:20}}>Back To Restaurants</Text>
             </TouchableOpacity>
-        </>
+        </View>
 
 )
 }
@@ -34,7 +33,7 @@ const OrderedFood = ({cartItems}) => (
         {cartItems.map((item, index) => (
             <View key={index}>
                 <View style={{flexDirection: 'row',marginTop:5,borderWidth:1,borderColor:'black',borderRadius:10, paddingTop:7,paddingBottom:7,paddingLeft:7,
-                backgroundColor:'rgb(197, 222, 221)'}}>
+                backgroundColor:'pink'}}>
                     <FoodImage image={item.image_url}/>
                     <FoodDetails name={item.title} price={item.price} />
                 </View>

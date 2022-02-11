@@ -5,9 +5,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {FoodDetails, FoodImage} from "../../screens/Order";
 import firebase from '../../firebase'
 import {clear} from "react-native/Libraries/LogBox/Data/LogBoxData";
-
+import { auth } from '../../firebase'
 export default function Cart({navigation}) {
     const dispatch = useDispatch();
+    const userName = auth.currentUser.email;
 
     const clearCart = () => dispatch({
         type: 'CLEAR_CART',
@@ -28,6 +29,7 @@ export default function Cart({navigation}) {
         const db = firebase.firestore();
 
         db.collection('orders').add({
+            userEmail: userName,
             items:items,
             restaurantName: restaurantName,
             createdAt: firebase.firestore.FieldValue.serverTimestamp(),
@@ -40,6 +42,7 @@ export default function Cart({navigation}) {
             totalPrice: totalPriceFormatted
         })
         clearCart();
+
     }
 
     const checkout = () => {
@@ -58,7 +61,7 @@ export default function Cart({navigation}) {
                                 paddingTop: 7,
                                 paddingBottom: 7,
                                 paddingLeft: 7,
-                                backgroundColor: 'rgb(255, 247, 253)'
+                                backgroundColor: 'pink'
                             }}>
                                 <FoodImage image={item.image_url}/>
                                 <FoodDetails name={item.title} price={item.price}/>

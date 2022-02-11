@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "@react-native-firebase/app": "^14.3.2",
+    "@react-native-firebase/database": "^14.3.2",
+    "@react-native-firebase/firestore": "^14.3.2",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.4.1",
     "@react-navigation/stack": "^6.1.1",
@@ -24,7 +27,8 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "@react-navigation/core": "^6.1.1"
   },
   "scripts": {
     "start": "expo start",
