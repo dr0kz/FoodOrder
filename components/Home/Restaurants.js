@@ -73,7 +73,7 @@ const RestaurantInfo = ({name, rating, review_count}) => (
     </View>
     </>
 )
-const RestaurantImage = ({image}) => (
+    const RestaurantImage = ({image}) => (
     <View style={{marginTop:10}}>
         <Image source={{
             uri: image
